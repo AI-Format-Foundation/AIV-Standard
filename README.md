@@ -1,160 +1,144 @@
-# AIV-Standard
-AIV (AI Video Format) is an open, ZIP-based standard for AI-generated video. It packages video, prompts, scripts, metadata, subtitles, thumbnails, audio tracks, licensing, and provenance into a single .aiv file for transparent, AI-native workflows.
+# AIFV — AI First Video Format (`.aifv`)
+Part of the AI First Exchange (AIFX)
 
-🎬 AIV – AI Video Format
-A unified open standard for AI-generated video
+**AIFV (AI First Video Format)** is an open, ZIP-based standard for AI-generated
+video. It packages video assets, prompts, scripts, generation parameters,
+audio tracks, subtitles, thumbnails, licensing information, and declared
+provenance into a single **`.aifv`** container.
 
-File extension: .aiv
-Version: 1.0.0
+AIFV is designed for **transparent, inspectable, and interoperable**
+AI-native video workflows across platforms and tools.
 
-🎥 Overview
+---
 
-AIV (AI Video Format) is an open, ZIP-based container standard for AI-generated video.
-It packages the video file, generation prompts, scene scripts, frame metadata, subtitles, licensing, thumbnails, and provenance into a single .aiv file.
+## 🎬 Overview
 
-AIV enables transparent attribution, consistent metadata, and standardized workflows for AI-native video across platforms and tools.
+An `.aifv` file represents a single AI-generated video with structured
+context describing **how the video was created**, **with what tools**, and
+**under what parameters**.
 
-📦 What’s Inside an .aiv File?
+AIFV supports documentation of:
+- AI generation inputs (prompts, scripts, settings)
+- Media assets (video, audio, subtitles, thumbnails)
+- Declared provenance and timestamps
+- Licensing and attribution context
 
-An .aiv file is a ZIP container with a structured directory:
+AIFV does **not** guarantee reproducibility or legal authorship and does
+not verify metadata beyond what is recorded in the container.
+
+---
+
+## 📦 AIFV Container Structure
+
+An `.aifv` file is a ZIP container with the following standardized layout:
+
 /
-  manifest.json                     # REQUIRED: core metadata for the video
-  video/
-    main.mp4                        # REQUIRED: primary video (or webm/mov)
-  audio/
-    voiceover.wav                   # OPTIONAL
-    music.wav                       # OPTIONAL
-  frames/
-    thumbnails/                     # OPTIONAL: preview images
-    keyframes/                      # OPTIONAL: keyframe exports
-  prompts/
-    generation.txt                  # OPTIONAL: main prompt text
-    negative.txt                    # OPTIONAL
-    script.txt                      # OPTIONAL: scene description
-    settings.json                   # OPTIONAL: model/generator settings
-  subtitles/
-    captions.srt                    # OPTIONAL: captions or transcripts
-  legal/
-    license.txt                     # OPTIONAL: usage terms
-    terms.txt                       # OPTIONAL: content rights
-  extra/
-    notes.md                        # OPTIONAL: project notes
-The manifest.json file anchors the whole format by defining metadata, technical details, AI origin, prompt sources, and file paths.
+manifest.json # REQUIRED: primary video manifest
+video/
+main.mp4 # REQUIRED: primary video (mp4/webm/mov)
+audio/
+voiceover.wav # OPTIONAL
+music.wav # OPTIONAL
+frames/
+thumbnails/ # OPTIONAL: preview images
+keyframes/ # OPTIONAL: extracted frames
+prompts/
+generation.txt # OPTIONAL: main prompt
+negative.txt # OPTIONAL
+script.txt # OPTIONAL: scene or narration script
+settings.json # OPTIONAL: model/generator parameters
+subtitles/
+captions.srt # OPTIONAL: captions or transcripts
+legal/
+license.txt # OPTIONAL: licensing terms
+terms.txt # OPTIONAL
+extra/
+notes.md # OPTIONAL: creator notes
 
-🧠 Key Features
-✔ AI-native video metadata
+yaml
+Copy code
 
-AIV stores:
+The `manifest.json` anchors the container by defining metadata, declared
+AI sources, provenance, and file references.
 
-AI model name + version
+---
 
-Generation engine (e.g., “Sora”, “Runway”, “Pika”, “Veo”)
+## 🧠 Key Capabilities
 
-Prompt text
+### ✔ AI-Native Video Metadata
 
-Scene structure
+AIFV may record declared information such as:
+- AI tool or platform identifier (e.g., Veo, Runway, Sora, Pika)
+- Model or pipeline name
+- Prompt and script sources
+- Negative prompts (where applicable)
+- Generation parameters (resolution, FPS, duration, aspect ratio)
+- Multi-track audio references
+- Declared creator identity and timestamps
 
-Negative prompts
+---
 
-Seed values
+### ✔ Unified Video Container
 
-Resolution, FPS, duration
+A single `.aifv` file may include:
+- Final rendered video
+- Prompts and scripts
+- Generator settings
+- Audio tracks or stems
+- Subtitles or transcripts
+- Thumbnails or preview frames
+- Licensing and attribution metadata
 
-Multi-track audio references
+This supports **exchange, archiving, review, and platform ingestion**
+without reliance on external sidecar files.
 
-Creator identity & provenance
+---
 
-✔ Unified container
+### ✔ Declared Provenance & Transparency
 
-All elements required for full video reproduction are stored together:
+AIFV enables documentation of:
+- Who declared authorship
+- Which tools were used
+- What inputs shaped the output
+- When the video was created
 
-Video file
+AIFV records **declared provenance**, not absolute proof of origin.
 
-Prompts
+---
 
-Settings
+### ✔ Open & Extensible Design
 
-Scripts
+AIFV is:
+- ZIP-based
+- JSON-driven
+- Language-agnostic
+- Forward-compatible
 
-Audio stems
+Developers may extend AIFV for:
+- Multi-scene or episodic video
+- VFX or CGI pipelines
+- Storyboards and animatics
+- Multi-model or hybrid workflows
 
-Subtitles
+---
 
-Cover thumbnails
+## 📑 `manifest.json` (Simplified Example)
 
-Licensing
-
-Metadata
-
-Everything in one .aiv.
-
-✔ Verifiable provenance
-
-Ensures transparency:
-
-Who generated the video
-
-With which tool
-
-Using what prompts
-
-On what date
-
-With what parameters
-
-Perfect for:
-
-Platforms verifying AI content
-
-Legal safety
-
-Content authenticity
-
-Ownership chain
-
-Remix tracking
-
-✔ Open & extensible
-
-AIV uses a ZIP-based structure, readable by any language or tool:
-
-Python
-
-Node.js
-
-Go
-
-Rust
-
-C++
-
-Developers can easily extend the spec for:
-
-VFX projects
-
-Storyboards
-
-CGI scene data
-
-Multi-model pipelines
-
-📑 manifest.json Structure (Simplified)
+```json
 {
-  "aiv_version": "1.0.0",
-  "id": "aiv-2025-000001",
+  "aifv_version": "1.0.0",
+  "id": "aifv-2025-000001",
   "title": "Sample Video",
-  "primary_creator": "CreatorName",
+  "creator": "CreatorName",
   "duration_seconds": 12.5,
   "resolution": "1920x1080",
   "fps": 24,
   "aspect_ratio": "16:9",
-  "genres": ["cinematic"],
   "ai_generated": true,
 
   "ai_source": {
-    "tool_name": "Sora",
-    "tool_version": "v1",
-    "model_name": "Sora-Gen",
+    "tool_name": "Veo",
+    "model_name": "Veo-Gen",
     "prompt_source": "prompts/generation.txt",
     "script_source": "prompts/script.txt",
     "settings_source": "prompts/settings.json"
@@ -163,7 +147,7 @@ Multi-model pipelines
   "provenance": {
     "creator_handle": "YourName",
     "creation_utc": "2025-12-01T04:22:00Z",
-    "tool_chain": ["Sora", "AIV-WRAPPER v1.0"]
+    "tool_chain": ["Veo", "AIFX Converter v1.0"]
   },
 
   "files": {
@@ -176,51 +160,46 @@ Multi-model pipelines
     "thumbnail": "frames/thumbnails/default.jpg"
   }
 }
-
-🧰 Tools (Coming Soon)
-
-Planned reference implementations:
-
-aivwrap — CLI to package MP4/WebM into .aiv
-
-aiv-validator — ensure spec compatibility
-
-aivcore — library for parsing/writing AIV containers
-
 🌐 MIME Type
+Proposed MIME type:
 
-Recommended MIME type for AIV files:
-video/aiv
+bash
+Copy code
+video/aifv
+🧰 Tooling (Planned)
+Reference implementations may include:
+
+aifvwrap — package video assets into .aifv
+
+aifv-validate — validate AIFV containers
+
+aifv-core — libraries for reading/writing AIFV files
 
 🛠 Use Cases
+AI filmmaking and short-form video
 
-AI filmmaking
+Storyboarding and pre-visualization
 
-Storyboarding & pre-visualization
+Platform ingestion of AI video
 
-Short-form and vertical content
+Training datasets with full metadata context
 
-Training datasets with full metadata
+Archival of AI-native video projects
 
-Verifiable generative content
-
-Multi-scene animation workflows
+Multi-scene or episodic AI video workflows
 
 🔄 Versioning
+AIFV follows semantic versioning:
 
-AIV uses semantic versioning:
+1.x.x — backward-compatible enhancements
 
-1.x.x — backward compatible schema updates
+2.x.x — backward-incompatible schema changes
 
-2.x.x — breaking changes to container or manifest
-
-Players should ignore unknown fields for forward compatibility.
+Unknown fields should be ignored for forward compatibility.
 
 📬 Contributing
-
-AIV is an open specification.
-Developers, creators, and platforms may propose additions or improvements via issues or pull requests.
+AIFV is an open specification under the AI First Exchange (AIFX).
+Contributions via issues and pull requests are welcome.
 
 📝 License
-
 Released under the MIT License.
