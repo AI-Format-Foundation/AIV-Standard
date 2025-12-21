@@ -1,15 +1,27 @@
-# LEGAL DISCLAIMER (AIV Standard)
+# LEGAL DISCLAIMER
+(AIFV Standard — AI First Exchange / AIFX)
 
-The AI Format Foundation does not provide legal advice.  
-Guidance in this repository reflects general interpretations of copyright policies for AI-assisted works as of the publication date.
+The **AI First Exchange (AIFX)** does not provide legal advice.
 
-Creators must consult qualified legal professionals for formal advice.
+The materials in this repository are provided for **informational and documentation purposes only** and reflect general, non-authoritative interpretations of issues related to AI-assisted video workflows as of the publication date.
 
-The Foundation:
-- Does not confirm copyright eligibility
-- Does not guarantee legal protection
-- Does not validate metadata provided by creators
-- Is not liable for legal outcomes based on AIV usage
+Creators and users of the AIFV format are responsible for consulting qualified legal professionals regarding copyright, licensing, ownership, and compliance with applicable laws.
 
-The AIV Standard exists solely to improve transparency and document the human component of AI-generated video.
+## Scope of Responsibility
 
+AIFX:
+- Does **not** determine or confirm copyright eligibility
+- Does **not** guarantee legal protection or enforce rights
+- Does **not** validate or verify creator-supplied metadata
+- Does **not** assume liability for legal outcomes arising from the use of AIFV specifications, tools, or documentation
+
+## Purpose of the AIFV Standard
+
+The **AI First Video Format (AIFV)** exists solely to:
+- Document declared metadata and workflow context
+- Improve transparency in AI-assisted video creation
+- Support interoperable, AI-first video exchange
+
+AIFV does **not** replace legal systems, courts, or statutory determinations of authorship, ownership, or rights.
+
+Use of the AIFV standard constitutes acknowledgment of these limitations.
