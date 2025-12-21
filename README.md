@@ -160,6 +160,7 @@ Developers may extend AIFV for:
     "thumbnail": "frames/thumbnails/default.jpg"
   }
 }
+```
 🌐 MIME Type
 Proposed MIME type:
 
