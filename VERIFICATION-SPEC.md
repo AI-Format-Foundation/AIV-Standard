@@ -50,6 +50,7 @@ It records and signals documented workflow context only.
   "platform_signal": false,
   "signature": null
 }
+```
 🔵 Tier 2 — Verified Creator (VC)
 Badge: 🔵 VC
 Trust Level: Medium
