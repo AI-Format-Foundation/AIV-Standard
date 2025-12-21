@@ -19,6 +19,7 @@ determinations of authorship, ownership, or copyright eligibility.
 "editorial_notes": "",
 "human_editing_steps": [],
 "human_curated_output": true
+```json
 
 Field Descriptions
 human_authorship_statement
