@@ -31,7 +31,7 @@ not verify metadata beyond what is recorded in the container.
 ## 📦 AIFV Container Structure
 
 An `.aifv` file is a ZIP container with the following standardized layout:
-
+```
 /
 manifest.json # REQUIRED: primary video manifest
 video/
@@ -54,7 +54,7 @@ license.txt # OPTIONAL: licensing terms
 terms.txt # OPTIONAL
 extra/
 notes.md # OPTIONAL: creator notes
-
+```
 yaml
 Copy code
 
